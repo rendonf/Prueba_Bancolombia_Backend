@@ -16,7 +16,6 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idUsuario;
 	private String nombreUsuario;
-	private String apellidoUsuario;
 	
 	@ManyToOne
 	@JoinColumn (name = "idPais")
@@ -26,10 +25,9 @@ public class Usuario {
 		
 	}
 	
-	public Usuario(String nombreUsuario, String apellidoUsuario, Pais pais) {
+	public Usuario(String nombreUsuario,Pais pais) {
 		super();
 		this.nombreUsuario = nombreUsuario;
-		this.apellidoUsuario = apellidoUsuario;
 		this.pais = pais;
 	}
 
@@ -49,14 +47,6 @@ public class Usuario {
 		this.nombreUsuario = nombreUsuario;
 	}
 
-	public String getApellidoUsuario() {
-		return apellidoUsuario;
-	}
-
-	public void setApellidoUsuario(String apellidoUsuario) {
-		this.apellidoUsuario = apellidoUsuario;
-	}
-
 	public Pais getPais() {
 		return pais;
 	}
@@ -64,6 +54,5 @@ public class Usuario {
 	public void setPais(Pais pais) {
 		this.pais = pais;
 	}
-	
 	
 }

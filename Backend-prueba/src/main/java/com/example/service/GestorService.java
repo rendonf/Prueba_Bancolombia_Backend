@@ -1,5 +1,6 @@
 package com.example.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
@@ -25,6 +26,17 @@ public class GestorService implements GestorRepository{
 	public List<Gestor> findAll() {
 		// TODO Auto-generated method stub
 		return gestorRepository.findAll();
+	}
+	
+	public List<Gestor> findAllByPais (Long idPais){
+		List<Gestor> gestorRespuesta = new ArrayList<>();
+		List<Gestor> gestores = gestorRepository.findAll();
+		for (int i=0; i<gestores.size(); i++) {
+			if(gestores.get(i).getPais().getIdPais() == idPais) {
+				gestorRespuesta.add(gestores.get(i));
+			}
+		}
+		return gestorRespuesta;
 	}
 
 	@Override
